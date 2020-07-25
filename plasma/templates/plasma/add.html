@@ -1,13 +1,15 @@
 {% extends "plasma/base.html" %}
 {% block title%}
-Index
+Login
 {% endblock %}
 {% block body %}
-<h1>Donar List</h1>
+<h1>Login</h1>
 <form method="POST">
     {% csrf_token %}
     USERNAME :<input type="text" name="username">
+    <br>
     PASSWORD :<input type="password" name="password">
-    <input type="submit" name='click'>
+    <br>
+    <input type="submit" name='Login'>
 </form>
 {% endblock%}

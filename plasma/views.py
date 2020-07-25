@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from . models import donars,recipient
+from . models import donars,recipient,Frontier_user
 
 # Create your views here.
 def index(request):
@@ -65,4 +65,20 @@ def index(request):
         }
         return render(request,"plasma/drop.html",context)
     return render(request,'plasma/index.html')
- 
+def add(request):
+    if request.method=="POST":
+        if 'Login' in request.POST:
+            username=request.POST['username']
+            password=request.POST['password']
+            try:
+                name=Frontier_user.objects.get(username=username)
+                if(checkpass(password,name.password)):
+                    return render(request,"plasma/addfile.html")
+            except Exception as ex:
+                print(ex)
+    return render(request,"plasma/add.html")
+def checkpass(var1,var2):
+    if(var1==var2):
+        return True
+    else:
+        return False
