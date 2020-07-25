@@ -1,0 +1,23 @@
+{% extends "plasma/base.html" %}
+{% block title%}
+Index
+{% endblock %}
+{% block body %}
+<h1>Donar List</h1>
+<form method="POST">
+    {% csrf_token %}
+    <select name="select">
+        <option  disabled="True" selected>Select Blood Group</option>
+        <option value="A-pos">A+ve </option>
+        <option value="A-neg">A-ve</option>
+        <option value="B-pos">B+ve</option>
+        <option value="B-neg">B-ve</option>
+        <option value="O-pos">O+ve</option>
+        <option value="O-neg">O-ve</option>
+        <option value="AB-pos">AB+ve</option>
+        <option value="AB-neg">Ab-ve</option>
+    </select>
+    <input type="submit" name="click">
+</form>
+<a href="select">prev</a>
+{% endblock%}

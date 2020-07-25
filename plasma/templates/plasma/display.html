@@ -1,0 +1,20 @@
+{% extends "plasma/base.html" %}
+{% block title%}
+Index
+{% endblock %}
+{% block body %}
+<h1>Donor List</h1>
+<table>
+    <tr>
+        <td><h2>Id</h2></td>
+        <td><h2>Name</h2></td>
+        <td><h2>Role</h2></td>
+    </tr>
+    <tr>
+        <td><p>{{x.id}} </p></td>
+        <td><p>{{x.name}}</p></td>
+        <td><p>{{x.role}}</p></td>
+    </tr>
+</table>
+<a href="select">prev</a>
+{% endblock%}

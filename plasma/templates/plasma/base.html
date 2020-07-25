@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+                {% block title %}{% endblock %}
+        </title>
+        <style>table,tr,td{
+            border:1px solid black;
+            border-collapse:collapse;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="body",name="body">
+            {% block body %}
+            {% endblock %} 
+        </div>
+
+    </body>
+</html>
