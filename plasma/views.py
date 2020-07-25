@@ -3,8 +3,6 @@ from . models import donars,recipient
 
 # Create your views here.
 def index(request):
-    return render(request,'plasma/index.html')
-def select(request):
     if request.method =="POST":
         if 'select' in request.POST:
             text=request.POST['select']
@@ -60,9 +58,11 @@ def select(request):
             context={
 
             }
-            return render(request,"plasma/display.html",context)
+            return render(request,"plasma/drop.html",context)
     else:
         context={
 
         }
-        return render(request,"plasma/display.html",context)
+        return render(request,"plasma/drop.html",context)
+    return render(request,'plasma/index.html')
+ 
