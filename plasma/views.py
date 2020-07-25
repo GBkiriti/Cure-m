@@ -1,5 +1,5 @@
 from django.shortcuts import render
-#from . models import donar,recipient
+from . models import donars,recipient
 
 # Create your views here.
 def index(request):
@@ -8,43 +8,61 @@ def select(request):
     if request.method =="POST":
         if 'select' in request.POST:
             text=request.POST['select']
-            if text=="all":
-                x=People.objects.all()
+            if text=="A-pos":
+                x=donars.objects.get(blood="A+ve")
                 context = {
                     "x":x,
                 }
-                return render(request,"testapp/output.html",context)
-            elif text=="on":
-                x=People.objects.get(name__contains="on")
+                return render(request,"plasma/display.html",context)
+            elif text=="A-neg":
+                x=donars.objects.get(blood="A-ve")
                 context={
                     "x":x,
                 }
-                return render(request,"testapp/index.html",context)
-            elif text=="number":
-                x=People.objects.get(id=5)
+                return render(request,"plasma/display.html",context)
+            elif text=="B-pos":
+                x=donars.objects.get(blood="B+ve")
                 context={
                     "x":x,
                 }
-                return render(request,"testapp/index.html",context)
-            elif text=="name":
-                x=People.objects.get(name="steve")
+                return render(request,"plasma/display.html",context)
+            elif text=="B-neg":
+                x=donars.objects.get(blood="B-ve")
                 context={
-                    "x":x
+                    "x":x,
                 }
-                return render(request,"testapp/index.html",context)
-            else :
+                return render(request,"plasma/display.html",context)
+            elif text=="O-pos" :
+                x=donars.objects.get(blood="O+ve")
                 context={
-
+                    "x":x,
                 }
-                return render(request,"testapp/drop.html",context)
+                return render(request,"plasma/display.html",context)
+            elif text=="O-neg" :
+                x=donars.objects.get(blood="O-ve")
+                context={
+                    "x":x,
+                }
+                return render(request,"plasma/display.html",context)
+            elif text=="AB-pos" :
+                x=donars.objects.get(blood="AB+ve")
+                context={
+                    "x":x,
+                }
+                return render(request,"plasma/display.html",context)
+            elif text=="AB-neg" :
+                x=donars.objects.get(blood="AB-ve")
+                context={
+                    "x":x,
+                }
+                return render(request,"plasma/display.html",context)
         else:
             context={
 
             }
-            return render(request,"testapp/drop.html",context)
-
+            return render(request,"plasma/display.html",context)
     else:
         context={
 
         }
-        return render(request,"testapp/drop.html",context)
+        return render(request,"plasma/display.html",context)
