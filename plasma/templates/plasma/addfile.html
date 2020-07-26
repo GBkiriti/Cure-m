@@ -3,5 +3,10 @@
 Add File
 {% endblock %}
 {% block body %}
-<h1>Hello Chutiye</h1>
-{% endblock%}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="file" name="myfile">
+    <br>
+    <button type="submit">Upload</button>
+</form>
+{% endblock %}
